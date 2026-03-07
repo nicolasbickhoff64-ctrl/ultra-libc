@@ -12,11 +12,11 @@ char **environ;
 
 extern long wrap(long ret);
 
-ssize_t write(int fd, const void *buf, ssize_t size) {
+ssize_t write(int fd, const void *buf, size_t size) {
     return (ssize_t)wrap(syscall(SYS_write, fd, buf, size));
 }
 
-ssize_t read(int fd, void *buf, ssize_t size) {
+ssize_t read(int fd, void *buf, size_t size) {
     return (ssize_t)wrap(syscall(SYS_read, fd, buf, size));
 }
 
