@@ -7,32 +7,32 @@ Dynamic libc size: ~21 KB (loader not yet implemented)
 
 In the future, a functional loader may be added to support dynamic linking.
 
-Implemented functions
+# Implemented functions
 
 ultra-libc currently implements 67 core functions, including:
 
-File operations:
+# File operations:
 open, creat, openat, openat2, fcntl, ioctl, stat, fstat, lstat, mkdir, chmod, utimensat, rename, unlink, rmdir, truncate, ftruncate, fsync, chown, dup, dup2, pipe
 
-Memory management:
+# Memory management:
 mmap, munmap, mprotect, brk, sbrk, malloc, free, memcpy
 
-Process & signals:
+# Process & signals:
 fork, vfork, execve, getpid, getppid, getuid, geteuid, getgid, getegid, kill, rt_sigaction, setpriority
 
-I/O & strings:
+# I/O & strings:
 write, read, printf (supports %s and %c), puts, strlen, strcpy, strcat, strcmp
 
-Networking:
+# Networking:
 socket, connect, bind, listen, accept
 
-Time & system info:
+# Time & system info:
 time, gettimeofday, clock_gettime, uname, gethostname, sethostname
 
-Syscall wrapper:
+# Syscall wrapper:
 syscall
 
-Process control:
+# Process control:
 exit, _exit, waitpid
 
 Future prospects
