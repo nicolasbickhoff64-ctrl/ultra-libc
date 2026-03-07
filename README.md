@@ -1,7 +1,40 @@
 # ultra-libc
-A minimal libc that is even smaller than musl itself, with a static libc size of ~37 KB, and a dynamic one weighing ~21 KB, and the loader for the dynamic libc is not yet implemented, but in the future we can create a functional loader for the ultra-libc, the implemented functions are:
-open, creat, openat, openat2, fcntl, ioctl, mmap, munmap, mprotect, setpriority, kill, rt_sigaction, socket, connect, bind, listen, accept, stat, fstat, lstat, mkdir, chmod, utimensat, printf (only %s and %c), puts, rename, exit, _exit, malloc, free, strlen, strcpy, strcat, strcmp, memcpy, time, gettimeofday, clock_gettime, write, read, syscall, getpid, brk, sbrk, close, lseek, getuid, geteuid, getgid, getegid, fork, vfork, gethostname, sethostname, execve, getppid, unlink, rmdir, chown, dup, dup2, pipe, truncate, ftruncate, fsync, uname, and waitpid.
+ultra-libc is a minimal C standard library for x86_64, even smaller than musl, designed for ultra-tiny, standalone binaries.
 
-Totaling 67 functions.
+Static libc size: ~37 KB
 
-And in the future, this libc may become famous for the size of the binaries it generates.
+Dynamic libc size: ~21 KB (loader not yet implemented)
+
+In the future, a functional loader may be added to support dynamic linking.
+
+Implemented functions
+
+ultra-libc currently implements 67 core functions, including:
+
+File operations:
+open, creat, openat, openat2, fcntl, ioctl, stat, fstat, lstat, mkdir, chmod, utimensat, rename, unlink, rmdir, truncate, ftruncate, fsync, chown, dup, dup2, pipe
+
+Memory management:
+mmap, munmap, mprotect, brk, sbrk, malloc, free, memcpy
+
+Process & signals:
+fork, vfork, execve, getpid, getppid, getuid, geteuid, getgid, getegid, kill, rt_sigaction, setpriority
+
+I/O & strings:
+write, read, printf (supports %s and %c), puts, strlen, strcpy, strcat, strcmp
+
+Networking:
+socket, connect, bind, listen, accept
+
+Time & system info:
+time, gettimeofday, clock_gettime, uname, gethostname, sethostname
+
+Syscall wrapper:
+syscall
+
+Process control:
+exit, _exit, waitpid
+
+Future prospects
+
+This libc is designed for extremely small binaries, and it may become famous for the tiny size of executables it produces, making it ideal for embedded systems, minimal Linux environments, or experiments with ultra-tiny OS development.
