@@ -16,8 +16,8 @@
 #define stdout 1
 #define stderr 2
 
-ssize_t write(int fd, const void *buf, ssize_t size);
-ssize_t read(int fd, void *buf, ssize_t size);
+ssize_t write(int fd, const void *buf, size_t size);
+ssize_t read(int fd, void *buf, size_t size);
 long syscall(long num, ...);
 pid_t getpid();
 int brk(void *addr);
