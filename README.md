@@ -35,6 +35,6 @@ syscall
 # Process control:
 exit, _exit, waitpid
 
-Future prospects
+# Future prospects
 
 This libc is designed for extremely small binaries, and it may become famous for the tiny size of executables it produces, making it ideal for embedded systems, minimal Linux environments, or experiments with ultra-tiny OS development.
