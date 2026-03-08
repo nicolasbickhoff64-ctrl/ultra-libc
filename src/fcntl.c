@@ -38,7 +38,15 @@ int creat(const char *path, mode_t mode) {
     return (int)wrap(syscall(SYS_creat, path, mode));
 }
 
-int openat(int dirfd, const char *path, int flags, mode_t mode) {
+int openat(int dirfd, const char *path, int flags, ...) {
+    mode_t mode = 0;
+
+    if (flags & O_CREAT) {
+        va_list ap;
+        va_start(ap, flags);
+        mode = va_arg(ap, int);
+        va_end(ap);
+    }
     return (int)wrap(syscall(SYS_openat, dirfd, path, flags, mode));
 }
 

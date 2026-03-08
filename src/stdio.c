@@ -1,4 +1,5 @@
 #include <stdarg.h>
+#include <stdio.h>
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
@@ -108,4 +109,25 @@ int puts(char *s) {
 
 int rename(const char *oldname, const char *newname) {
     return wrap(syscall(SYS_rename, oldname, newname));
+}
+
+char *fdgets(int fd, char *buf, int n) {
+    if (n <= 0) return 0;
+    int i = 0;
+    char c;
+
+    while (i < n - 1) {
+        ssize_t r = read(fd, &c, 1);
+        if (r <= 0) break; // EOF ou erro
+        buf[i++] = c;
+        if (c == '\n') break;
+    }
+
+    if (i == 0) return 0; // nada lido
+    buf[i] = 0;
+    return buf;
+}
+
+char *fgets(char *str, int n, FILE *stream) {
+    return fdgets((int)stream, str, n);
 }

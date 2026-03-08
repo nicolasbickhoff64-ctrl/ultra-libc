@@ -155,3 +155,7 @@ int ftruncate(int fd, off_t length) {
 int fsync(int fd) {
     return wrap(syscall(SYS_fsync, fd));
 }
+
+int chdir(const char *path) {
+    return wrap(syscall(SYS_chdir, path));
+}

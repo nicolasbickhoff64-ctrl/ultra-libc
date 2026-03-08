@@ -35,7 +35,7 @@
 
 int open(const char *path, int flags, ...);
 int creat(const char *path, mode_t mode);
-int openat(int dirfd, const char *path, int flags, mode_t mode);
+int openat(int dirfd, const char *path, int flags, ...);
 int openat2(int dirfd, const char *path, void *how, size_t size);
 
 #endif

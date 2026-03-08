@@ -2,7 +2,7 @@ SRCS := src/errno.c src/fcntl.c src/ioctl.c src/mman.c src/stdio.c src/stdlib.c 
 OBJECTS := src/errno.o src/fcntl.o src/ioctl.o src/mman.o src/stdio.o src/stdlib.o src/string.o src/unistd.o src/wrap.o src/utsname.o src/stat.o src/resource.c src/signal.o src/socket.o src/time.o src/wait.o
 STATIC_LIB := lib/libc.a
 SHARED_LIB := lib/libc.so
-CFLAGS := -nostdlib -ffreestanding -Iinclude
+CFLAGS := -nostdlib -ffreestanding -Iinclude -O2
 LDFLAGS := -shared -fno-builtin -nostdlib -ffreestanding
 
 CC := gcc
